@@ -289,7 +289,7 @@ nvm alias default vX.X.X
 nvm current
 ```
 
-# Preparar ambiente da digital ocean
+## Preparar ambiente da digital ocean
 ```bash
 # listar chaves ssh no seu computador
 ls -la ~/.ssh
@@ -315,7 +315,7 @@ cp -r ~/.ssh /home/seuUsuario/
 # Alterar permissões da pasta do usuário criado
 sudo chown -R seuUsuario:seuUsuario /home/seuUsuario/.ssh
 ```
-# Importações de Banco de Dados
+## Importações de Banco de Dados
 ```bash
 -- Importar banco a partir de um arquivo sql
 php artisan db:wipe && mysql -u root -p prjNexus < /home/lamego/Documentos/bancos/nexus/last.sql && echo "Importado com sucesso!"
