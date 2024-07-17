@@ -315,3 +315,23 @@ cp -r ~/.ssh /home/seuUsuario/
 # Alterar permissões da pasta do usuário criado
 sudo chown -R seuUsuario:seuUsuario /home/seuUsuario/.ssh
 ```
+# Importações de Banco de Dados
+Importar banco a partir de um arquivo sql
+# php artisan db:wipe && mysql -u root -p prjNexus < /home/fernando/Documentos/bancos/nexus/last.sql && echo "Importado com sucesso!"
+php artisan db:wipe && mysql -u root -p prjSingular < /home/fernando/Documentos/bancos/singular/last.sql && echo "Importado com sucesso!"
+php artisan db:wipe && mysql -u root -p prjLusitana < /home/fernando/Documentos/bancos/lusitana/last.sql && echo "Importado com sucesso!"
+
+-- Importar banco a partir de um arquivo sql com barra de progresso
+php artisan db:wipe && pv /home/fernando/Documentos/bancos/nexus/last.sql | mysql -u root -p prjNexus && echo "Importado com sucesso!"
+php artisan db:wipe && pv /home/fernando/Documentos/bancos/singular/last.sql | mysql -u root -p prjSingular && echo "Importado com sucesso!"
+php artisan db:wipe && pv /home/fernando/Documentos/bancos/lusitana/last.sql | mysql -u root -p prjLusitana && echo "Importado com sucesso!"
+
+-- Exportar banco para um arquivo sql
+mysqldump -u root -p prjNexus > /home/fernando/Documentos/bancos/nexus/last.sql && echo "Exportado com sucesso!"
+mysqldump -u root -p prjSingular > /home/fernando/Documentos/bancos/singular/last.sql && echo "Exportado com sucesso!"
+mysqldump -u root -p prjLusitana > /home/fernando/Documentos/bancos/lusitana/last.sql && echo "Exportado com sucesso!"
+
+-- Exportar banco para um arquivo sql com barra de progresso
+mysqldump -u root -p prjNexus | pv -W > /home/fernando/Documentos/bancos/nexus/last.sql && echo "Exportado com sucesso!"
+mysqldump -u root -p prjSingular | pv -W > /home/fernando/Documentos/bancos/singular/last.sql && echo "Exportado com sucesso!"
+mysqldump -u root -p prjLusitana | pv -W > /home/fernando/Documentos/bancos/lusitana/last.sql && echo "Exportado com sucesso!"
