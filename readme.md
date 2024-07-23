@@ -149,6 +149,22 @@ php -v
 
 # Escolher versão do php pelo menu
 sudo update-alternatives --config php
+
+#Novos Comandos
+Alterar versão php
+
+7.4
+sudo a2disconf php8.3-fpm
+sudo a2enconf php7.4-fpm
+sudo systemctl restart apache2
+sudo update-alternatives --set php /usr/bin/php7.4
+
+8.3
+sudo a2disconf php7.4-fpm
+sudo a2enconf php8.3-fpm
+sudo systemctl restart apache2
+sudo update-alternatives --set php /usr/bin/php8.3
+
 ```
 
 ## Composer
