@@ -354,7 +354,7 @@ mysqldump -u root -p prjSingular | pv -W > /home/lamego/Documentos/bancos/singul
 mysqldump -u root -p prjLusitana | pv -W > /home/lamego/Documentos/bancos/lusitana/last.sql && echo "Exportado com sucesso!"
 ```
 ### Comandos para limpeza de cache, config e rotas no Laravel
-```
+```bash
 # Limpeza
 php artisan config:clear
 php artisan cache:clear
