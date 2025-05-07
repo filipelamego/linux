@@ -366,3 +366,25 @@ php artisan view:clear
 sudo systemctl restart php8.3-fpm
 sudo systemctl restart apache2
 ```
+## Limpeza do Kernel
+```bash
+#!/bin/bash
+
+echo "🧹 Limpando kernels antigos e pacotes órfãos..."
+echo "Versão atual do kernel: $(uname -r)"
+echo
+
+# Simula a remoção primeiro
+echo "🔍 Verificando o que será removido..."
+sudo apt autoremove --dry-run
+echo
+
+read -p "Deseja continuar com a remoção? [s/N]: " confirm
+if [[ "$confirm" == "s" || "$confirm" == "S" ]]; then
+    echo
+    sudo apt autoremove -y
+    echo "✅ Limpeza concluída."
+else
+    echo "❌ Operação cancelada."
+fi
+```
