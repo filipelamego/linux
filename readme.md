@@ -179,6 +179,14 @@ sudo update-alternatives --set php /usr/bin/php8.4
 sudo systemctl restart apache2
 php -v
 
+# Desativar configuração do FPM antigo e ativar o 8.4
+sudo a2disconf php8.3-fpm
+sudo a2enconf php8.4-fpm
+sudo systemctl restart apache2
+
+# Definir o binário padrão do CLI
+sudo update-alternatives --set php /usr/bin/php8.4
+
 ```
 
 ## Composer
