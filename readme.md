@@ -64,6 +64,8 @@ sudo apt install php8.2 php8.2-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
 
 sudo apt install php8.3 php8.3-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
 
+sudo apt install php8.4 php8.4-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
+
 php -v
 ```
 
@@ -79,6 +81,8 @@ sudo apt install php8.1 php8.1-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,
 sudo apt install php8.2 php8.2-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
 
 sudo apt install php8.3 php8.3-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
+
+sudo apt install php8.4 php8.4-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xml,mbstring,soap,ldap} -y
 
 php -v
 ```
@@ -155,15 +159,25 @@ Alterar versão php
 
 7.4
 sudo a2disconf php8.3-fpm
+sudo a2disconf php8.4-fpm
 sudo a2enconf php7.4-fpm
 sudo systemctl restart apache2
 sudo update-alternatives --set php /usr/bin/php7.4
 
 8.3
 sudo a2disconf php7.4-fpm
+sudo a2dismod php8.4
 sudo a2enconf php8.3-fpm
 sudo systemctl restart apache2
 sudo update-alternatives --set php /usr/bin/php8.3
+
+8.4
+sudo a2disconf php7.4-fpm
+sudo a2dismod php8.3
+sudo a2enmod php8.4
+sudo update-alternatives --set php /usr/bin/php8.4
+sudo systemctl restart apache2
+php -v
 
 ```
 
